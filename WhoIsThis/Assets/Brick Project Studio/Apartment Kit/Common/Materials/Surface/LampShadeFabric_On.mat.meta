@@ -1,8 +1,15 @@
 fileFormatVersion: 2
-guid: 0bdf9a2f4e0b67d4b8e09e68ca8d5053
+guid: 625ca8b0c9507cd4d8685b336560db6d
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 124055
+  packageName: Apartment Kit
+  packageVersion: 4.2
+  assetPath: Assets/Brick Project Studio/Apartment Kit/Common/Materials/Surface/LampShadeFabric_On.mat
+  uploadId: 594248
