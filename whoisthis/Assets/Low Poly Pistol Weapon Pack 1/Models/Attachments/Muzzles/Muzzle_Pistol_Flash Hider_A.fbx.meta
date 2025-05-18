@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: ff9cced84d1d8404aa0e1fd4bc7c6ccf
+guid: 7615a3ee614e1b14e98c6ce9b6d230f1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -65,7 +65,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
@@ -105,11 +105,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 285693
-  packageName: Low Poly Pistol Weapon Pack 1
-  packageVersion: 1.1
-  assetPath: Assets/Low Poly Pistol Weapon Pack 1/Models/Attachments/Muzzles/Muzzle_Pistol_Flash
-    Hider_A.fbx
-  uploadId: 729399
