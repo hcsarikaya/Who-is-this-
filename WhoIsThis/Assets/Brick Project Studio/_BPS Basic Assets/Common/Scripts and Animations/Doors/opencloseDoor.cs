@@ -1,73 +1,100 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SojaExiles
-
 {
-	public class opencloseDoor : MonoBehaviour
-	{
+    public class opencloseDoor : MonoBehaviour
+    {
+        public Animator openandclose;
+        public bool open;
+        public Transform Player;
 
-		public Animator openandclose;
-		public bool open;
-		public Transform Player;
+        public GameObject lockpickCanvas;
+        public GameObject lockedMessageUI;
+        GameObject playerObj;
 
-		void Start()
-		{
-			open = false;
-		}
+        public bool unlocked = false;
 
-		void OnMouseOver()
-		{
-			
-			{
-				if (Player)
-				{
-					float dist = Vector3.Distance(Player.position, transform.position);
-					if (dist < 15)
-					{
-						if (open == false)
-						{
-							if (Input.GetMouseButtonDown(0))
-							{
-								StartCoroutine(opening());
-							}
-						}
-						else
-						{
-							if (open == true)
-							{
-								if (Input.GetMouseButtonDown(0))
-								{
-									StartCoroutine(closing());
-								}
-							}
+        private PlayerInventory inventory;
 
-						}
+        public Camera playerCamera;
+        public Camera lockpickCamera;
 
-					}
-				}
+        void Start()
+        {
+            open = false;
+            playerObj = GameObject.FindGameObjectWithTag("Player");
+            inventory = playerObj.GetComponent<PlayerInventory>();
+        }
 
-			}
+        void OnMouseOver()
+        {
+            if (Player)
+            {
+                float dist = Vector3.Distance(Player.position, transform.position);
+                if (dist < 15 && Input.GetMouseButtonDown(0))
+                {
+                    if (!unlocked)
+                    {
+                        if (inventory.hasLockPick)
+                        {
+                            lockpickCanvas.SetActive(true); // Trigger the lockpick minigame
+                            Cursor.lockState = CursorLockMode.None;
+                            Cursor.visible = true;
 
-		}
+                            playerCamera.enabled = false;
+                            lockpickCamera.enabled = true;
 
-		IEnumerator opening()
-		{
-			print("you are opening the door");
-			openandclose.Play("Opening");
-			open = true;
-			yield return new WaitForSeconds(.5f);
-		}
+                            playerObj.GetComponent<FirstPersonController>().enabled = false;
+                        }
+                        else
+                        {
+                            StartCoroutine(ShowLockedMessage());
+                        }
+                    }
+                    else
+                    {
+                        if (!open)
+                        {
+                            StartCoroutine(opening());
+                        }
+                        else
+                        {
+                            StartCoroutine(closing());
+                        }
+                    }
+                }
+            }
+        }
 
-		IEnumerator closing()
-		{
-			print("you are closing the door");
-			openandclose.Play("Closing");
-			open = false;
-			yield return new WaitForSeconds(.5f);
-		}
+        IEnumerator ShowLockedMessage()
+        {
+            lockedMessageUI.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            lockedMessageUI.SetActive(false);
+        }
 
+        IEnumerator opening()
+        {
+            print("you are opening the door");
+            openandclose.Play("Opening");
+            open = true;
+            yield return new WaitForSeconds(.5f);
+        }
 
-	}
+        IEnumerator closing()
+        {
+            print("you are closing the door");
+            openandclose.Play("Closing");
+            open = false;
+            yield return new WaitForSeconds(.5f);
+        }
+
+        public void UnlockDoor()
+        {
+            unlocked = true;
+            lockpickCanvas.SetActive(false);
+        }
+    }
 }
