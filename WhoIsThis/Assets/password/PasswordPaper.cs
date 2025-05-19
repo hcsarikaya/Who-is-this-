@@ -15,6 +15,7 @@ public class PasswordPaper : MonoBehaviour
 
         if (relatedUIImage != null)
         {
+            relatedUIImage.transform.parent.gameObject.SetActive(true);
             relatedUIImage.SetActive(true);
             Debug.Log("UI Image activated: " + relatedUIImage.name);
         }
