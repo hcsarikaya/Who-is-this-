@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab459c2a1d78d12418653fb206f5b9d3
+guid: c9a02aa2cefdce644bfce4634316f94b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,19 +93,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -128,3 +115,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285693
+  packageName: Low Poly Pistol Weapon Pack 1
+  packageVersion: 1.1
+  assetPath: Assets/Low Poly Pistol Weapon Pack 1/Texture/Low Poly Weapon.png
+  uploadId: 729399
