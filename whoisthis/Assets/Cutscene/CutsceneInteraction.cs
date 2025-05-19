@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 public class CutsceneInteraction : MonoBehaviour
 {
     public PlayableDirector cutsceneDirector;
-    private bool isBellRung = false;
+    public bool isBellRung = false;
 
     public void RingBell() 
     {
