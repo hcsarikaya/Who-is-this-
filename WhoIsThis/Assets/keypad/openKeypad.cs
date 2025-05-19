@@ -1,23 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PasswordPaper : MonoBehaviour
+public class openKeypad : MonoBehaviour
 {
-    public string passwordFragment;
-    public GameObject relatedUIImage; // Assign in Inspector
+    public GameObject relatedUIImage;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     private void OnMouseDown()
     {
-        Debug.Log("Paper clicked!");
-        SubtitleManager.Instance.ShowSubtitle("Paper clicked!", 3f);
+        Debug.Log("keypad clicked!");
+        SubtitleManager.Instance.ShowSubtitle("Enter password", 3f);
 
-        PasswordManager.Instance.CollectFragment(passwordFragment);
+        
 
         if (relatedUIImage != null)
         {
-            relatedUIImage.transform.parent.gameObject.SetActive(true);
             relatedUIImage.SetActive(true);
-            Debug.Log("UI Image activated: " + relatedUIImage.name);
+            
         }
         else
         {
