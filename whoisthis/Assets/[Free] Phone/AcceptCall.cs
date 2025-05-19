@@ -7,31 +7,49 @@ public class AcceptCall : MonoBehaviour
     public GameObject talkingPhoneUI;   // Talking interface
     public AudioSource callAudioSource; // AudioSource with voice clip
 
+    public LoopManager loopManager;     // Loop manager reference (ata inspector'dan)
+
     public void OnAcceptCall()
     {
-        // Hide the incoming call UI
         phoneCallUI.SetActive(false);
-
-        // Show the talking UI
         talkingPhoneUI.SetActive(true);
 
-        // Play the audio
         callAudioSource.Play();
 
-        // Start coroutine to wait until it's done
         StartCoroutine(WaitForCallToEnd());
+    }
+
+    public void OnRejectCall()
+    {
+        Debug.Log("Call rejected");
+
+        // Fazı 2 yap
+        if (loopManager != null)
+        {
+            loopManager.SetPhase(LoopManager.GamePhase.Phase2);
+        }
+
+        // UI'ları kapat
+        phoneCallUI.SetActive(false);
+        talkingPhoneUI.SetActive(false);
+        phoneCallUI.transform.parent.gameObject.SetActive(false);
+
+        // Hareketi geri aç
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<FirstPersonController>().enabled = true;
     }
 
     IEnumerator WaitForCallToEnd()
     {
         yield return new WaitWhile(() => callAudioSource.isPlaying);
-        Debug.Log("Trying to open phone call UI");
+        Debug.Log("Call ended");
 
-        // Call ended � hide the talking UI
         talkingPhoneUI.SetActive(false);
         phoneCallUI.transform.parent.gameObject.SetActive(false);
 
-        // Optionally re-enable movement or cursor here
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

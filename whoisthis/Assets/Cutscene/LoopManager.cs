@@ -7,6 +7,7 @@ public class LoopManager : MonoBehaviour
     public enum GamePhase { Phase1, Phase2, Phase3 }
     public GamePhase currentPhase = GamePhase.Phase1;
 
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -28,5 +29,11 @@ public class LoopManager : MonoBehaviour
     public void AdvanceToPhase(GamePhase phase)
     {
         currentPhase = phase;
+    }
+
+    public void SetPhase(GamePhase newPhase)
+    {
+        currentPhase = newPhase;
+        Debug.Log("New Phase: " + currentPhase);
     }
 }

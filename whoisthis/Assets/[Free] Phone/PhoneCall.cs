@@ -42,13 +42,13 @@ public class PhoneCall : MonoBehaviour
         isRinging = false;
         ringSource.Stop();
         phoneLight.enabled = false;
-        phoneCallUI.transform.parent.gameObject.SetActive(true); // Enable full canvas
+        phoneCallUI.transform.parent.gameObject.SetActive(true); 
         phoneCallUI.SetActive(true);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Optional: disable player movement
+        
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<FirstPersonController>().enabled = false;
     }
