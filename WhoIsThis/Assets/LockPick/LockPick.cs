@@ -30,8 +30,7 @@ public class LockPick : MonoBehaviour
     void Start()
     {
         newLock();
-        lockpickCamera.enabled = true;
-        playerCamera.enabled = false;
+        
     }
 
     // Update is called once per frame

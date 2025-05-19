@@ -42,9 +42,9 @@ namespace SojaExiles
                             lockpickCanvas.SetActive(true); // Trigger the lockpick minigame
                             Cursor.lockState = CursorLockMode.None;
                             Cursor.visible = true;
-
-                            playerCamera.enabled = false;
                             lockpickCamera.enabled = true;
+                            playerCamera.enabled = false;
+                            
 
                             playerObj.GetComponent<FirstPersonController>().enabled = false;
                         }
