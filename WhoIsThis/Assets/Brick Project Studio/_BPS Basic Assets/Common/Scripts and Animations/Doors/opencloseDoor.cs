@@ -1,78 +1,55 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SojaExiles
+
 {
     public class opencloseDoor : MonoBehaviour
     {
+
         public Animator openandclose;
         public bool open;
         public Transform Player;
 
-        public GameObject lockpickCanvas;
-        public GameObject lockedMessageUI;
-        GameObject playerObj;
-
-        public bool unlocked = false;
-
-        private PlayerInventory inventory;
-
-        public Camera playerCamera;
-        public Camera lockpickCamera;
-
         void Start()
         {
             open = false;
-            playerObj = GameObject.FindGameObjectWithTag("Player");
-            inventory = playerObj.GetComponent<PlayerInventory>();
         }
 
         void OnMouseOver()
         {
-            if (Player)
-            {
-                float dist = Vector3.Distance(Player.position, transform.position);
-                if (dist < 15 && Input.GetMouseButtonDown(0))
-                {
-                    if (!unlocked)
-                    {
-                        if (inventory.hasLockPick)
-                        {
-                            lockpickCanvas.SetActive(true); // Trigger the lockpick minigame
-                            Cursor.lockState = CursorLockMode.None;
-                            Cursor.visible = true;
-                            lockpickCamera.enabled = true;
-                            playerCamera.enabled = false;
-                            
 
-                            playerObj.GetComponent<FirstPersonController>().enabled = false;
-                        }
-                        else
-                        {
-                            StartCoroutine(ShowLockedMessage());
-                        }
-                    }
-                    else
+            {
+                if (Player)
+                {
+                    float dist = Vector3.Distance(Player.position, transform.position);
+                    if (dist < 15)
                     {
-                        if (!open)
+                        if (open == false)
                         {
-                            StartCoroutine(opening());
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                StartCoroutine(opening());
+                            }
                         }
                         else
                         {
-                            StartCoroutine(closing());
+                            if (open == true)
+                            {
+                                if (Input.GetMouseButtonDown(0))
+                                {
+                                    StartCoroutine(closing());
+                                }
+                            }
+
                         }
+
                     }
                 }
-            }
-        }
 
-        IEnumerator ShowLockedMessage()
-        {
-            lockedMessageUI.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            lockedMessageUI.SetActive(false);
+            }
+
         }
 
         IEnumerator opening()
@@ -91,10 +68,6 @@ namespace SojaExiles
             yield return new WaitForSeconds(.5f);
         }
 
-        public void UnlockDoor()
-        {
-            unlocked = true;
-            lockpickCanvas.SetActive(false);
-        }
+
     }
 }

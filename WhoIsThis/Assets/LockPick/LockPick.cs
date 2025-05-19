@@ -10,7 +10,7 @@ public class LockPick : MonoBehaviour
     public Transform innerLock;
     public Transform pickPosition;
 
-    public opencloseDoor doorScript;
+    public lockOpenClose doorScript;
 
     public float maxAngle = 90;
     public float lockSpeed = 10;
