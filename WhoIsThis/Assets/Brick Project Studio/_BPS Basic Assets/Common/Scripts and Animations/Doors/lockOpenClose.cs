@@ -78,6 +78,8 @@ public class lockOpenClose : MonoBehaviour
     IEnumerator opening()
     {
         print("you are opening the door");
+        SubtitleManager.Instance.ShowSubtitle("you are opening the door...", 3f);
+
         openandclose.Play("Opening");
         open = true;
         yield return new WaitForSeconds(.5f);
