@@ -10011,7 +10011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutsceneDirector: {fileID: 1127499578}
-  isBellRung: 0
+  isBellRung: 1
 --- !u!4 &1669001990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 196608472465784359, guid: 422f7f767554b114a9a1f54038a5710b, type: 3}
