@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 164b745bda6346948ada4fd5900e0280
+guid: 9da72ee2b03dc574ab1716d9422bf19e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -65,7 +65,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
@@ -105,10 +105,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 285693
-  packageName: Low Poly Pistol Weapon Pack 1
-  packageVersion: 1.1
-  assetPath: Assets/Low Poly Pistol Weapon Pack 1/Models/Weapons/Pistol_E.fbx
-  uploadId: 729399
