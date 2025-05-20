@@ -11,7 +11,7 @@ public class lockOpenClose : MonoBehaviour
     public Transform Player;
 
     public GameObject lockpickCanvas;
-    public GameObject lockedMessageUI;
+    
     GameObject playerObj;
 
     public bool unlocked = false;
@@ -50,8 +50,8 @@ public class lockOpenClose : MonoBehaviour
                     }
                     else
                     {
-                        StartCoroutine(ShowLockedMessage());
-                    }
+                            SubtitleManager.Instance.ShowSubtitle("Door is loked...", 3f);
+                        }
                 }
                 else
                 {
@@ -68,12 +68,7 @@ public class lockOpenClose : MonoBehaviour
         }
     }
 
-    IEnumerator ShowLockedMessage()
-    {
-        lockedMessageUI.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        lockedMessageUI.SetActive(false);
-    }
+    
 
     IEnumerator opening()
     {

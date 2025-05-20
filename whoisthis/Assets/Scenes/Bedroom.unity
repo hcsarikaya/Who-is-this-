@@ -5805,7 +5805,6 @@ MonoBehaviour:
   open: 0
   Player: {fileID: 1584661814}
   lockpickCanvas: {fileID: 814323726}
-  lockedMessageUI: {fileID: 0}
   unlocked: 0
   playerCamera: {fileID: 1321454380}
   lockpickCamera: {fileID: 266064744}
@@ -8149,6 +8148,46 @@ PrefabInstance:
     - target: {fileID: 2252436582649487000, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
       propertyPath: m_Name
       value: subtitleCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963296969181938243, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600825655468866676, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1243.6943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.655
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 42.66272
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497623357876130057, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 53.3274
       objectReference: {fileID: 0}
     - target: {fileID: 8816585441877787201, guid: c8f2f37520e95274fb9a0a4dd81160d3, type: 3}
       propertyPath: m_Pivot.x

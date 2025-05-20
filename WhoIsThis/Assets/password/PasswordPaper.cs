@@ -8,8 +8,8 @@ public class PasswordPaper : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Paper clicked!");
-        SubtitleManager.Instance.ShowSubtitle("Paper clicked!", 3f);
+        //Debug.Log("Paper clicked!");
+        //SubtitleManager.Instance.ShowSubtitle("Paper clicked!", 3f);
 
         PasswordManager.Instance.CollectFragment(passwordFragment);
 
