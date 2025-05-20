@@ -50,7 +50,7 @@ public class lockOpenClose : MonoBehaviour
                     }
                     else
                     {
-                            SubtitleManager.Instance.ShowSubtitle("Door is loked...", 3f);
+                            SubtitleManager.Instance.ShowSubtitle("Door is locked...", 3f);
                         }
                 }
                 else
