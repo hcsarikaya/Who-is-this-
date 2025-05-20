@@ -3,27 +3,31 @@ using UnityEngine;
 
 public class collectKey : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject door;
+    private LoopManager gameManager;
+
     void Start()
     {
-        
+        gameManager = GameObject.FindObjectOfType<LoopManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnMouseDown()
     {
-
-
-        // Optional: disable player movement
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<PlayerInventory>().hasKey = true;
         door.GetComponent<keyOpenClose>().open = true;
-        SubtitleManager.Instance.ShowSubtitle(" founded!", 3f);
+
+        SubtitleManager.Instance.ShowSubtitle("founded!", 3f);
         gameObject.SetActive(false);
+
+        // FAZ 3'e geç
+        if (gameManager != null)
+        {
+            gameManager.SetPhase(LoopManager.GamePhase.Phase3);
+        }
+        else
+        {
+            Debug.LogWarning("PhaseManager bulunamadı!");
+        }
     }
 }
