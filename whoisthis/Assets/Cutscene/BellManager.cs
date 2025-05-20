@@ -1,35 +1,96 @@
+using System.Collections;
 using UnityEngine;
 
 public class BellManager : MonoBehaviour
 {
-    public CutsceneInteraction cutscene;
+    public AudioSource bellSound;
+    public CutsceneInteraction cutsceneInteraction;
+
+    private LoopManager phaseManager;
+    private bool phase3Triggered = false;
 
     void Start()
     {
-        if (cutscene == null)
-            cutscene = FindObjectOfType<CutsceneInteraction>();
+        phaseManager = FindObjectOfType<LoopManager>();
+        StartCoroutine(HandleBellByPhase());
+    }
 
-        switch (LoopManager.Instance.currentPhase)
+    void Update()
+    {
+        // Faz 3'e geçildiğinde tek seferlik tetikle
+        if (!phase3Triggered && phaseManager != null && phaseManager.currentPhase == LoopManager.GamePhase.Phase3)
         {
-            case LoopManager.GamePhase.Phase1:
-                Invoke("RingBellPhase1", 20f); 
-                break;
-
-            case LoopManager.GamePhase.Phase2:
-                Invoke("RingBellPhase2", 60f); 
-                break;
+            phase3Triggered = true;
+            StartCoroutine(HandlePhase3Logic());
         }
     }
 
-    void RingBellPhase1()
+    IEnumerator HandleBellByPhase()
     {
-        cutscene.isBellRung = true;
-        Debug.Log("Phase 1: Kapı çalıyor.");
+        // Faz 1 kontrolü
+        if (phaseManager.currentPhase == LoopManager.GamePhase.Phase1)
+        {
+            yield return new WaitForSeconds(15f);
+
+            if (phaseManager.currentPhase == LoopManager.GamePhase.Phase1)
+            {
+                TriggerBell();
+            }
+            else if (phaseManager.currentPhase == LoopManager.GamePhase.Phase2)
+            {
+                yield return StartCoroutine(HandlePhase2Logic());
+            }
+        }
+        // Faz 2'de başladıysa direkt Faz 2 mantığına geç
+        else if (phaseManager.currentPhase == LoopManager.GamePhase.Phase2)
+        {
+            yield return StartCoroutine(HandlePhase2Logic());
+        }
+        // Faz 3'te başladıysa direkt tetikle (nadiren olur ama tedbir)
+        else if (phaseManager.currentPhase == LoopManager.GamePhase.Phase3)
+        {
+            phase3Triggered = true;
+            yield return StartCoroutine(HandlePhase3Logic());
+        }
     }
 
-    void RingBellPhase2()
+    IEnumerator HandlePhase2Logic()
     {
-        cutscene.isBellRung = true;
-        Debug.Log("Phase 2: Kapı çalıyor.");
+        yield return new WaitForSeconds(60f);
+
+        if (phaseManager.currentPhase == LoopManager.GamePhase.Phase2)
+        {
+            TriggerBell();
+        }
+        else
+        {
+            Debug.Log("Faz 2 sırasında faz 3'e geçildi, zil çalmayacak.");
+        }
+    }
+
+    IEnumerator HandlePhase3Logic()
+    {
+        yield return new WaitForSeconds(2f);
+        TriggerFinalBell();
+    }
+
+    void TriggerBell()
+    {
+        if (bellSound != null)
+            bellSound.Play();
+
+        if (cutsceneInteraction != null)
+            cutsceneInteraction.isBellRung = true;
+
+        Debug.Log("Kapı çaldı.");
+    }
+
+    void TriggerFinalBell()
+    {
+        
+
+    
+
+        Debug.Log("Oyun Bitti!");
     }
 }
